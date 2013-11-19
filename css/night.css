@@ -1,0 +1,47 @@
+/* general */
+.title{color:#fff;}
+
+
+/* homepage */
+.homec{
+	background: #000;
+	color: #FFF;
+}
+#featured h2 a{color: #FFF;text-decoration:none;}
+.fcon h2 a{color: #FFF;text-decoration:none;}
+.fcon,.os,#featured{
+	color: #FFF;
+}
+.wrap{
+	background: #000;
+}
+
+/*catalog*/
+.list h2 a{color:#FFF;text-decoration:none;}
+.list{
+	color: #FFF;
+}
+
+/*user*/
+#user,#user a{
+	color: #FFF;
+}
+
+/*admin*/
+#admin, #admin a, #login, #register{
+	color: #FFF;
+}
+
+/* cart page */
+.ninecol{
+	color: #FFF;
+}
+#checkout{
+	color: #FFF;
+}
+#info,#sidebar2{
+	color: #FFF;
+}
+.reviewBox{
+	color: #FFF;
+}
