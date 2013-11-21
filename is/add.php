@@ -2,8 +2,8 @@
 session_start();
 
 // get the product id
-$id = $_GET['id'];
-$product = $_GET['name'];
+$id = $_POST['my-item-id'];
+$product = $_POST['my-item-name'];
 
 /* 
  * check if the 'cart' session array was created

@@ -3,6 +3,7 @@
 
 <?php 
 	include_once ('is/config.inc.php'); //Starts session and adds helper functions
+	//include_once('store/jcart/jcart.php'); //JCART PHP*
 ?>
 		
 <html xmlns="http://www.w3.org/1999/xhtml">

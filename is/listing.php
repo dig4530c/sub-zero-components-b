@@ -1,8 +1,6 @@
-
-
 <?php
 ini_set('display_errors','On');
- error_reporting(E_ALL);
+error_reporting(E_ALL);
 
 
  //if($_GET['action']=='add')
@@ -17,6 +15,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'exists'){
  
  
 include ('dash.php');
+include_once('store/jcart/jcart.php'); //JCART PHP*
 
 
 $query="SELECT * FROM products ORDER BY product ";
@@ -87,10 +86,19 @@ while ($row=$result->fetch_assoc())
 						echo "<button class='thumbdown' onclick='voteDown(\"" . $id . "\")'></button>
 						<button class='thumbup' onclick='voteUp(\"" . $id . "\")'></button>
 						</div>
-						<p class='old_cost strike'>$$cost</p>
-						<p class='new_cost newprice'>$$discount</p>
-						<p class='discount red'>50% off</p>
-						<a href='is/add.php?id={$id}&amp;name={$product}' class='btn'>Add to Cart</a>
+						<form method='post' action='is/add.php' class='jcart'>
+							<fieldset>
+								<input type='hidden' name='jcartToken' value='{$_SESSION['jcartToken']}' />
+								<input type='hidden' name='my-item-id' value='$id' />
+								<input type='hidden' name='my-item-name' value='$product' />
+								<input type='hidden' name='my-item-price' value='$cost' />
+								<input type='hidden' name='my-item-url' value='' />
+								<p class='old_cost strike'>$$cost</p>
+								<p class='new_cost newprice'>$$discount</p>
+								<p class='discount red'>50% off</p>
+								<input type='submit' name='my-add-button' value='Add to Cart' class='btn' />
+							</fieldset>
+						</form>
 						</div>
 						<img src='$img' alt='$product' />
 						</div>
@@ -102,10 +110,20 @@ while ($row=$result->fetch_assoc())
 						echo "<button class='thumbdown' onclick='voteDown(\"" . $id . "\")'></button>
 						<button class='thumbup' onclick='voteUp(\"" . $id . "\")'></button>
 						</div>
-						<p class='old_cost strike'>$$cost</p>
-						<p class='new_cost newprice'>$$discount</p>
-						<p class='discount red'>10% off</p>
-						<a href='is/add.php?id={$id}&amp;name={$product}' class='btn'>Add to Cart</a>
+						
+						<form method='post' action='is/add.php' class='jcart'>
+							<fieldset>
+								<input type='hidden' name='jcartToken' value='{$_SESSION['jcartToken']}' />
+								<input type='hidden' name='my-item-id' value='$id' />
+								<input type='hidden' name='my-item-name' value='$product' />
+								<input type='hidden' name='my-item-price' value='$cost' />
+								<input type='hidden' name='my-item-url' value='' />
+								<p class='old_cost strike'>$$cost</p>
+								<p class='new_cost newprice'>$$discount</p>
+								<p class='discount red'>10% off</p>
+								<input type='submit' name='my-add-button' value='Add to Cart' class='btn' />
+							</fieldset>
+						</form>
 						</div>
 						<img src='$img' alt='$product' />
 						</div>
@@ -117,7 +135,18 @@ while ($row=$result->fetch_assoc())
 						echo "<button class='thumbdown' onclick='voteDown(\"" . $id . "\")'></button>
 						<button class='thumbup' onclick='voteUp(\"" . $id . "\")'></button>
 						</div>
-						<p>$$cost</p><a href='is/add.php?id={$id}&amp;name={$product}' class='btn'>Add to Cart</a>
+						<form method='post' action='is/add.php' class='jcart'>
+							<fieldset>
+								<input type='hidden' name='jcartToken' value='{$_SESSION['jcartToken']}' />
+								<input type='hidden' name='my-item-id' value='$id' />
+								<input type='hidden' name='my-item-name' value='$product' />
+								<input type='hidden' name='my-item-price' value='$cost' />
+								<input type='hidden' name='my-item-url' value='' />
+
+								<p>$$cost</p><input type='submit' name='my-add-button' value='Add to Cart' class='btn' />
+							</fieldset>
+						</form>
+						
 						</div>
 						<img src='$img' alt='$product' />
 						</div>
